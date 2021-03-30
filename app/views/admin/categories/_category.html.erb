@@ -1,0 +1,15 @@
+<tr>
+  <td>
+    <%= category.name %>
+  </td>
+  <td colspan="2">
+    <% if category.description %>
+      <%= category.description%>
+    <%else %>
+      No description available
+    <%end%>
+  </td>
+  <td>
+    <%= category.product_count %>
+  </td>
+</tr>
