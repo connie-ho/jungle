@@ -12,9 +12,16 @@
   <main class="container">
 
     <% flash.each do |type, msg| %>
-      <div class="alert <%= (msg.include? "Success")? "alert-info": "alert-danger"%>">
+      <div class="alert <%= (msg.include? "Oops")? "alert-danger error": "alert-info success" %>">
         <%= msg %>
       </div>
+    <% end %>
+
+    <% if active_sale? %>
+    <p class="alert alert-info">
+      There's an active <%= "Back to school sale"%> sale going on!
+      <strong>Everything is <%= 15 %>% off!</strong>
+    </p>
     <% end %>
 
     <%= yield %>
@@ -24,9 +31,10 @@
 </body>
 </html>
 
-<script type="text/javascript">
+<%# script to hide success alerts %>
+<%# <script type="text/javascript">
   window.setTimeout(() =>  {
-    $(".alert-info").fadeTo(500, 0).slideUp(500, () => {
+    $(".success").fadeTo(500, 0).slideUp(500, () => {
       $(this).remove();
     })}, 3000);
-</script>
+</script> %>
