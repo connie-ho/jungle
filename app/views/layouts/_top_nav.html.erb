@@ -31,11 +31,11 @@
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <% if current_user %>
-          <li>Signed in as <%= current_user.name %></li>
+          <div>Signed in as: <%=%></div>
           <li><%= link_to "Logout", '/logout' %></li>
         <% else %>
-          <li><%= link_to 'Login', '/login' %></li>
-          <li><%= link_to 'Signup', '/signup' %></li>
+          <li><%= link_to 'Login', login_path %></li>
+          <li><%= link_to 'Register', register_path %></li>
         <% end %>
           
 
