@@ -2,12 +2,12 @@
 
 <%= form_tag'/login' do%>
    <div class="form-group">
-    <%= label_tag :email %>
-    <%= text_field_tag :email, class: 'form-control' %>
+    <%= label_tag :email  %>
+    <%= text_field_tag :email, "", class: 'form-control'%>
   </div>
   <div class="form-group">
     <%= label_tag :password %>
-    <%= text_field_tag :password, class: 'form-control' %>
+    <%= text_field_tag :password, "", class: 'form-control' %>
   </div>
 <%= submit_tag "Submit", class: 'btn btn-primary' %>
 <% end %>
