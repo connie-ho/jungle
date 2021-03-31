@@ -8,8 +8,10 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
 
     if @user.save
+      flash.notice = "Successfully Registered!"
       redirect_to '/login'
     else
+      flash.notice = "Oops! There was an error resgistering your account. Please try again."
       redirect_to '/register'
     end
   end
