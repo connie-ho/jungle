@@ -37,6 +37,8 @@ RSpec.describe Product, type: :model do
       @product = Product.create(name: 'product', price:10000, quantity: 1)
       expect(@product.errors.full_messages).to include("Category can't be blank")
     end
-
   end
+
+  
+
 end

@@ -11,7 +11,7 @@ class UsersController < ApplicationController
       flash.notice = "Successfully Registered!"
       redirect_to '/login'
     else
-      flash.notice = "Oops! There was an error resgistering your account. Please try again."
+      flash.notice = "Oops! There was an error registering your account. Please try again."
       redirect_to '/register'
     end
   end
@@ -23,7 +23,8 @@ class UsersController < ApplicationController
       :first_name, 
       :last_name, 
       :email, 
-      :password
+      :password,
+      :password_confirmation
     )
   end
 
