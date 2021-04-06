@@ -17,7 +17,7 @@ RSpec.feature "AddToCart", type: :feature, js: true do
     end
   end
 
-  scenario "They see the product details" do
+  scenario "They see an item added to their cart" do
     # ACT
     visit root_path
     first('article.product').click_on 'Add'
