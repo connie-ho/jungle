@@ -43,7 +43,7 @@
             data-name="Jungle"
             data-description="<%= session[:current_user]? session[:current_user]["first_name"] + ' ' + session[:current_user]["last_name"] : "Guest"%>'s Jungle Order"
             data-locale="auto"
-            data-email="<%= session[:current_user]? session[:current_user]["email"] : 'python.connie@gmail.com'%>"
+            data-email="<%= session[:current_user]? session[:current_user]["email"] : ''%>"
             data-currency="cad">
           </script>
         <% end %>
