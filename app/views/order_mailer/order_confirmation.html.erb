@@ -1,5 +1,4 @@
-<h1>OrderMailer#order_confirmation</h1>
+<h1>Order Confirmation</h1>
 
-<p>
-  <%= @greeting %>, find me in app/views/order_mailer/order_confirmation.html.erb
-</p>
+<p>Thanks for your order <%= @order.email %></p>
+<p>Your total was <%= humanized_money_with_symbol (@order.total_cents / 100.0) %></p>

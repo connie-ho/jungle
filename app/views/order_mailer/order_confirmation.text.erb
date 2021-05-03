@@ -1,3 +1,5 @@
-OrderMailer#order_confirmation
+Order Confirmation
 
-<%= @greeting %>, find me in app/views/order_mailer/order_confirmation.text.erb
+Thanks for your order <%= @order.email %>
+Your total was <%= humanized_money_with_symbol (@order.total_cents / 100.0) %>
+
