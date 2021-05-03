@@ -34,7 +34,9 @@
         </tfoot>
       </table>
     </div>
+    <% if session[:current_user] %>
       <h4>Email: <%= @order.email %></h4>
+    <% end %>
 <br>
   <%= link_to "Continue Shopping", root_path, class: 'btn btn-lg btn-primary' %>
 
