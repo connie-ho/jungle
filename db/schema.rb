@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20210504005958) do
+ActiveRecord::Schema.define(version: 20210504004029) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -60,11 +60,9 @@ ActiveRecord::Schema.define(version: 20210504005958) do
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.integer  "category_id"
-    t.integer  "review_id"
   end
 
   add_index "products", ["category_id"], name: "index_products_on_category_id", using: :btree
-  add_index "products", ["review_id"], name: "index_products_on_review_id", using: :btree
 
   create_table "reviews", force: :cascade do |t|
     t.integer  "user_id"
@@ -88,21 +86,16 @@ ActiveRecord::Schema.define(version: 20210504005958) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string  "first_name",      limit: 255, null: false
-    t.string  "last_name",       limit: 255, null: false
-    t.string  "email",           limit: 255, null: false
-    t.string  "password_digest", limit: 255, null: false
-    t.integer "review_id"
+    t.string "first_name",      limit: 255, null: false
+    t.string "last_name",       limit: 255, null: false
+    t.string "email",           limit: 255, null: false
+    t.string "password_digest", limit: 255, null: false
   end
-
-  add_index "users", ["review_id"], name: "index_users_on_review_id", using: :btree
 
   add_foreign_key "items", "users", name: "items_user_id_fkey", on_delete: :cascade
   add_foreign_key "line_items", "orders"
   add_foreign_key "line_items", "products"
   add_foreign_key "products", "categories"
-  add_foreign_key "products", "reviews"
   add_foreign_key "reviews", "products"
   add_foreign_key "reviews", "users"
-  add_foreign_key "users", "reviews"
 end
