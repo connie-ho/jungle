@@ -145,8 +145,8 @@ user1 = User.create!({
 })
 
 user2 = User.create!({
-  first_name: 'Connie', 
-  last_name: 'Ho', 
+  first_name: 'Alice', 
+  last_name: 'Charles', 
   email: 'user@example.com',
   password: "password"
 })
@@ -162,15 +162,15 @@ rev1 = Review.create!({
 })
 
 rev2 = Review.create!({
-  product_id: prod2.id, 
-  user_id: user1.id, 
+  product_id: prod1.id, 
+  user_id: user2.id, 
   description: 'Expected a lot more',
   rating: 1
 })
 
 rev3 = Review.create!({
-  product_id: prod1.id, 
-  user_id: user2.id, 
+  product_id: prod2.id, 
+  user_id: user1.id, 
   description: 'Amazing value',
   rating: 5
 })

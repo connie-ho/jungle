@@ -6,6 +6,7 @@ class User < ActiveRecord::Base
   validates :email, presence: true, uniqueness: { case_sensitive: false }
   validates :password, length: {minimum: 6}
 
+  has_many :reviews
 
   def self.authenticate_with_credentials(email, password)
     
