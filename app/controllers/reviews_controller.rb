@@ -1,5 +1,7 @@
 class ReviewsController < ApplicationController
 
+  before_filter :require_login
+  
   def create
     @review = Review.new(review_params)
     @review.product_id = params.require(:product_id)
@@ -7,7 +9,6 @@ class ReviewsController < ApplicationController
     
 
     if @review.save
-      flash.notice = "Thanks for your review!"
       redirect_to "/products/#{params[:product_id]}"
     else
       flash.notice = "Oops! There was an error adding your review"
@@ -24,6 +25,13 @@ class ReviewsController < ApplicationController
       :description,
       :rating,
     )
+  end
+
+  def require_login
+    unless session[:current_user]
+      flash.notice = 'Oops! You must be logged in to add a review'
+      redirect_to '/login'
+    end
   end
 
 end
