@@ -9,7 +9,7 @@ class ReviewsController < ApplicationController
     
 
     if @review.save
-      redirect_to "/products/#{params[:product_id]}"
+      redirect_to "/products/#{params[:product_id]}", notice: 'Thanks for you review!'
     else
       flash.notice = "Oops! There was an error adding your review"
       redirect_to '/register'
@@ -17,10 +17,9 @@ class ReviewsController < ApplicationController
   end
 
   def destroy
-    puts 'in destroy method'
     @review = Review.find params[:id]
-    # @product.destroy
-    # redirect_to [:admin, :products], notice: 'Product deleted!'
+    @review.destroy
+    redirect_to "/products/#{params[:product_id]}", notice: 'Review deleted!'
   end
 
   private
