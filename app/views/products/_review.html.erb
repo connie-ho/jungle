@@ -1,6 +1,12 @@
 <article>
   <%= review.description %>
   <%= review.rating %>
-  <%= review.user_first_name %>
-  <%= review.user_last_name %>
+  <div>
+    <%= review.user_first_name %>
+    <%= review.user_last_name %>
+  </div>
+
+  <% if session[:current_user]['id'] == review.user_id %>
+    <%= link_to fa_icon('trash') , class: 'btn btn-sm btn-danger', method: :delete, data: { confirm: "Are you sure?" } %>
+  <% end %>
 </article>
