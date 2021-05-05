@@ -14,8 +14,12 @@ class ReviewsController < ApplicationController
       flash.notice = "Oops! There was an error adding your review"
       redirect_to '/register'
     end
-  
-  
+  end
+
+  def destroy
+    # @product = Product.find params[:id]
+    # @product.destroy
+    # redirect_to [:admin, :products], notice: 'Product deleted!'
   end
 
   private
